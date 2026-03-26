@@ -66,8 +66,8 @@ app.post('/analyze', async (req, res) => {
     await page.setUserAgent(
       'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1'
     );
-    await page.goto(demoUrl, { waitUntil: 'networkidle2', timeout: 30000 });
-    await new Promise(r => setTimeout(r, 2000));
+    await page.goto(demoUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await new Promise(r => setTimeout(r, 5000));
 
     const issues = [];
     const textSpecs = figmaSpecs.filter(
